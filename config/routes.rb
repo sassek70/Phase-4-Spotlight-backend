@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
   resources :user_events, only: [:index, :show, :create, :destroy]
   resources :venues, only: [:index, :show]
   resources :events, only: [:index, :show]
@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :create, :update, :destroy]
 
   post '/login', to: 'sessions#create'
-  # Defines the root path route ("/")
-  # root "articles#index"
+  delete '/logout', to: 'sessions#destroy'
+  get '/user', to: 'users#show'
+  get '/users/:id/events', to: 'users#events'
+
 end

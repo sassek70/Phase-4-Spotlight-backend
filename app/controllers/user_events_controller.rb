@@ -1,7 +1,8 @@
 class UserEventsController < ApplicationController
- # def index
-    #     render json: UserEvent.all, status: :ok
-    # end
+
+    def index
+        render json: UserEvent.all, status: :ok
+    end
 
     def show
         user_event = UserEvent.find(params[:id])

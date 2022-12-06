@@ -5,8 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-User.create(username: "abigail", password_digest: "1234")
-User.create(username: "kevin", password_digest: "5678")
+User.create(username: "abigail", password: "1234")
+User.create(username: "kevin", password: "5678")
 
 Venue.create(name: "Atlanta-Center", address: "123 main st", city: "Atlanta", state: "GA", postal_code: 12341234, sg_venue_id:rand(1..100), url: "www.something.com")
 Venue.create(name: "BB&T Center", address: "456 main st", city: "Camden", state: "NJ", postal_code: 5678, sg_venue_id:rand(1..100), url: "www.something2.com")

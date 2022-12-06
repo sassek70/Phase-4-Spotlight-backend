@@ -3,11 +3,21 @@ class UsersController < ApplicationController
     # def index
     #     render json: User.all, status: :ok
     # end
-
     def show
-        user = User.find(params[:id])
-        render json: user, status: :ok
+        user = User.find_by(id: session[:user_id])
+        if user
+            render json: user.events
+        else
+            render json: { error: "Not authorized" }, status: :unauthorized
+        end
     end
+
+    # def events
+    #     user = User.find_by(id: session[:user_id])
+    #     events = user.events
+    #     render json: events, status: :ok
+    # end
+
 
   def create
     user = User.create(user_params)
