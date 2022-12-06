@@ -11,8 +11,13 @@ class UsersController < ApplicationController
 
     def create
         user = User.create!(user_params)
-        render json: user, status: :created
-    end
+        if user&.authenticate(params[:password])
+            session[:user_id] = user.id
+            render json: user, status: :created
+          else
+            render json: { error: "Invalid username or password" }, status: :unauthorized
+          end
+        end
 
     def update
         user = User.find(params[:id])
