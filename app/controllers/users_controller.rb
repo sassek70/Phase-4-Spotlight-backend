@@ -9,15 +9,14 @@ class UsersController < ApplicationController
         render json: user, status: :ok
     end
 
-    def create
-        user = User.create!(user_params)
-        if user&.authenticate(params[:password])
-            session[:user_id] = user.id
-            render json: user, status: :created
-          else
-            render json: { error: "Invalid username or password" }, status: :unauthorized
-          end
-        end
+  def create
+    user = User.create(user_params)
+    if user.valid?
+      render json: user, status: :created
+    else
+      render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
 
     def update
         user = User.find(params[:id])
@@ -34,6 +33,6 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.permit(:username, :password)
+        params.permit(:username, :password, :password_confirmation)
     end
 end
