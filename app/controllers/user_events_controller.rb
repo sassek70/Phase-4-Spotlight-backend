@@ -20,6 +20,12 @@ class UserEventsController < ApplicationController
         render json: user_event.event, status: :created
     end
 
+    def destroy
+        user_event = UserEvent.find_by(user_id: params[:user_id], event_id: params[:id])
+        user_event.destroy
+        head :no_content
+    end
+
     private
 
     def user_event_params
