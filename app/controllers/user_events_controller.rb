@@ -6,12 +6,18 @@ class UserEventsController < ApplicationController
 
     def show
         user_event = UserEvent.find(params[:id])
-        render json: user_event, status: :ok
+        render json: user_event.event, status: :ok
+    end
+
+    def update
+        user_event = UserEvent.find(params[:id])
+        user_event.update!(user_event_params)
+        render json: user_event.event, status: :ok
     end
 
     def create
         user_event = UserEvent.create!(user_event_params)
-        render json: user_event, status: :created
+        render json: user_event.event, status: :created
     end
 
     private
