@@ -8,10 +8,10 @@
 User.create(username: "abigail", password: "1234")
 User.create(username: "kevin", password: "5678")
 
-Venue.create(name: "AT&T Center", address: "1 AT&T Center Parkway ", city: "San Antonio", state: "TX", postal_code: 78219, sg_venue_id:rand(1..100), url: "https://www.attcenter.com/")
-Venue.create(name: "House of Blues Chicago", address: "329 N Dearborn St", city: "Chicago", state: "IL", postal_code: 60654, sg_venue_id:rand(1..100), url: "houseofblues.com")
-Venue.create(name: "Red Rocks Park & Amphitheatre", address: "18300 W. Alameda Parkway", city: "Morrison", state: "CO", postal_code: 80465, sg_venue_id:rand(1..100), url: "https://www.redrocksonline.com/plan-your-visit/getting-here/")
-Venue.create(name: "Toyota Center", address: "1510 Polk Street", city: "Houston", state: "TX", postal_code: 77002, sg_venue_id:rand(1..100), url: "https://www.toyotacenter.com/")
+Venue.create(name: "AT&T Center", address: "1 AT&T Center Parkway ", city: "San Antonio", state: "TX", postal_code: 78219, sg_venue_id:rand(1..100), url: "https://www.attcenter.com/", image:"/images/AT&T Center.jpeg" )
+Venue.create(name: "House of Blues Chicago", address: "329 N Dearborn St", city: "Chicago", state: "IL", postal_code: 60654, sg_venue_id:rand(1..100), url: "houseofblues.com", image: "/images/HOB Chicago.jpeg")
+Venue.create(name: "Red Rocks Park & Amphitheatre", address: "18300 W. Alameda Parkway", city: "Morrison", state: "CO", postal_code: 80465, sg_venue_id:rand(1..100), url: "https://www.redrocksonline.com/plan-your-visit/getting-here/", image: "/images/redrocks.jpeg" )
+Venue.create(name: "Toyota Center", address: "1510 Polk Street", city: "Houston", state: "TX", postal_code: 77002, sg_venue_id:rand(1..100), url: "https://www.toyotacenter.com/", image: "/images/Toyota_Center.jpeg" )
 
 Event.create(name: "Rihanna", venue: Venue.all.sample.name, event_type: "concert", sg_event_id:rand(1..100), url: "www.rihanna.com", sg_venue_id: Venue.all.sample.sg_venue_id, image: "/images/Rhianna.jpeg" )
 Event.create(name: "Beyonce", venue: Venue.all.sample.name, event_type: "concert", sg_event_id:rand(1..100), url: "www.rihanna1.com", sg_venue_id: Venue.all.sample.sg_venue_id, image: "/images/Beyonce.webp")
